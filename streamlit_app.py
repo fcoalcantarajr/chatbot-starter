@@ -78,7 +78,13 @@ def submit():
 
 
 # Create a text input for user
-st.text_input('YOU: ', key='prompt_input', on_change=submit)
+t = st.text_area('YOU: ', key='prompt_input', on_change=submit)
+
+if t is not None:
+    textsplit = t.splitlines()
+
+    for x in textsplit:
+        st.write(x)
 
 
 if st.session_state.entered_prompt != "":
